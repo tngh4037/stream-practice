@@ -1,6 +1,8 @@
 package problem.easy;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Problem14 {
 
@@ -12,6 +14,8 @@ public class Problem14 {
      */
     public static Map<String, String> filterKeys(Map<String, String> map) {
         // 여기에 코드 작성
-        return null;
+        return map.entrySet().stream()
+                .filter(v -> v.getKey().length() >= 3)
+                .collect(Collectors.toMap(v -> v.getKey(), v -> v.getValue()));
     }
 }

@@ -12,6 +12,8 @@ public class Problem9 {
      */
     public static List<String> transformStrings(List<String> strings) {
         // 여기에 코드 작성
-        return null;
+        return strings.stream()
+                .map(v -> v.length() >= 3 ? v.toUpperCase() : v)
+                .toList();
     }
 }

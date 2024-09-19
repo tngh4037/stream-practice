@@ -1,7 +1,9 @@
 package problem.easy;
 
 import java.util.Map;
+import java.util.stream.Collectors;
 
+// 다시보기
 public class Problem12 {
 
     /**
@@ -12,6 +14,7 @@ public class Problem12 {
      */
     public static Map<String, Integer> mapStringLength(Map<String, String> map) {
         // 여기에 코드 작성
-        return null;
+        return map.entrySet().stream()
+                .collect(Collectors.toMap(v -> v.getKey(), entryValue -> entryValue.getValue().length()));
     }
 }

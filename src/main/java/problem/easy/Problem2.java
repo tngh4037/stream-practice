@@ -12,6 +12,8 @@ public class Problem2 {
      */
     public static List<Integer> squareNumbers(List<Integer> numbers) {
         // 여기에 코드 작성
-        return null;
+        return numbers.stream()
+                .map(num -> num * num)
+                .toList();
     }
 }
