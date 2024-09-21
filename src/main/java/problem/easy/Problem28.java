@@ -1,8 +1,10 @@
 package problem.easy;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
+// 다시보기
 public class Problem28 {
 
     /**
@@ -13,6 +15,13 @@ public class Problem28 {
      */
     public static Optional<String> findLongestString(List<String> strings) {
         // 여기에 코드 작성
-        return Optional.empty();
+        return strings.stream().max(Comparator.comparingInt(str -> str.length()));
+
+        //return strings.stream()
+        //        .reduce((oldStr, newStr) -> oldStr.length() > newStr.length() ? oldStr : newStr);
+
+        //return strings.stream()
+        //        .sorted(Comparator.comparing(str -> str.length(), Comparator.reverseOrder()))
+        //        .findFirst();
     }
 }

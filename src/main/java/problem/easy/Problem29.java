@@ -12,6 +12,8 @@ public class Problem29 {
      */
     public static int totalCharacterCount(List<String> strings) {
         // 여기에 코드 작성
-        return 0;
+        return strings.stream()
+                .mapToInt(v -> v.length())
+                .sum();
     }
 }
