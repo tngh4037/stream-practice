@@ -2,7 +2,9 @@ package problem.medium;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
+import java.util.stream.Collectors;
 
+// 다시보기
 public class Problem41 {
 
     /**
@@ -14,6 +16,16 @@ public class Problem41 {
      */
     public static SimpleEntry<Long, Double> countAndAverageLengthOfStringsStartingWithC(List<String> strings) {
         // 여기에 코드 작성
-        return null;
+        long key = strings.stream()
+                .filter(str -> str.startsWith("c"))
+                .count();
+
+        double value = strings.stream()
+                .filter(str -> str.startsWith("c"))
+                .mapToDouble(String::length)
+                .average()
+                .orElse(0.0);
+
+        return new SimpleEntry<>(key, value);
     }
 }

@@ -13,6 +13,9 @@ public class Problem42 {
      */
     public static int sumSpecialMultiples(List<Integer> numbers) {
         // 여기에 코드 작성
-        return 0;
+        return numbers.stream()
+                .filter(num -> num % 3 == 0 || num % 5 == 0)
+                .mapToInt(num -> num % 5 == 0 ? num * 2 : num)
+                .sum();
     }
 }

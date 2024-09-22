@@ -1,7 +1,9 @@
 package problem.medium;
 
+import java.util.Comparator;
 import java.util.List;
 
+// 다시보기
 public class Problem34 {
 
     /**
@@ -12,6 +14,12 @@ public class Problem34 {
      */
     public static int findMaxValue(List<Integer> numbers) {
         // 여기에 코드 작성
-        return 0;
+        return numbers.stream()
+                .max(Integer::compareTo)
+                .orElse(0);
+
+        //return numbers.stream()
+        //        .max(Comparator.naturalOrder())
+        //        .orElse(0);
     }
 }
