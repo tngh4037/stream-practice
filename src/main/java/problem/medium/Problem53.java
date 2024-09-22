@@ -2,6 +2,7 @@ package problem.medium;
 
 import java.util.List;
 import problem.medium.resources.Customer2;
+import problem.medium.resources.Order;
 
 public class Problem53 {
 
@@ -13,6 +14,16 @@ public class Problem53 {
      */
     public static List<String> getTotalMilkOrdersForEachCustomer(List<Customer2> customers) {
         // 여기에 코드 작성
-        return null;
+        return customers.stream()
+                .map(customer2 -> {
+                    int sum = customer2.getOrders().stream()
+                            .filter(order -> order.getProduct().equals("Milk"))
+                            .mapToInt(Order::getQuantity)
+                            .sum();
+
+                    return customer2.getName() + ": " + sum;
+                }).toList();
     }
 }
+
+// 참고) List<String> expected = Arrays.asList("Alice: 2", "Bob: 3");
