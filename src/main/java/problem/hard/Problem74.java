@@ -1,7 +1,10 @@
 package problem.hard;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
+// ? [1, 2, 3, 4, 7] -> [1, 2, 3, 4]
 public class Problem74 {
 
     /**
@@ -13,6 +16,10 @@ public class Problem74 {
      */
     public static List<Integer> findLongestSequentiallyIncreasingSublist(List<Integer> numbers) {
         // 여기에 코드 작성
-        return null;
+        return IntStream.range(0, numbers.size() - 1)
+                .filter(i -> numbers.get(i) < numbers.get(i + 1))
+                .map(i -> numbers.get(i))
+                .boxed()
+                .collect(Collectors.toList());
     }
 }

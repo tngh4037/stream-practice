@@ -2,6 +2,7 @@ package problem.hard;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Problem61 {
 
@@ -15,6 +16,21 @@ public class Problem61 {
      */
     public static Map<String, Integer> extractKeyValuePairs(List<String> strings) {
         // 여기에 코드 작성
-        return null;
+        return strings.stream()
+                .filter(str -> {
+                    String[] split = str.split("=");
+                    if (split.length != 2) {
+                        return false;
+                    }
+
+                    try {
+                        Integer.parseInt(split[1]);
+                        return true;
+                    } catch (NumberFormatException e) {
+                        return false;
+                    }
+                })
+                .map(str -> str.split("="))
+                .collect(Collectors.toMap(str -> str[0], (str -> Integer.valueOf(str[1]))));
     }
 }

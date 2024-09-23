@@ -8,7 +8,7 @@ import problem.medium.resources.Customer2;
 import problem.medium.resources.Employee;
 import problem.medium.resources.Product;
 
-// TODO
+// 다시보기
 public class Problem60 {
 
     /**

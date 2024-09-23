@@ -1,5 +1,7 @@
 package problem.hard;
 
+import java.util.AbstractMap;
+import java.util.Comparator;
 import java.util.List;
 
 public class Problem65 {
@@ -13,6 +15,11 @@ public class Problem65 {
      */
     public static String findStringWithMostAs(List<String> strings) {
         // 여기에 코드 작성
-        return "";
+        return strings.stream()
+                .map(str -> new AbstractMap.SimpleEntry<>(
+                        str, str.chars().filter(chr -> chr == 'a').count()))
+                .max(Comparator.comparing(AbstractMap.SimpleEntry::getValue))
+                .map(str -> str.getKey())
+                .orElse("");
     }
 }

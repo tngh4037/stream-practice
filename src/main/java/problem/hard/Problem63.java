@@ -2,6 +2,7 @@ package problem.hard;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Problem63 {
 
@@ -14,6 +15,10 @@ public class Problem63 {
      */
     public static Map<String, Long> countUniqueCharacters(List<String> strings) {
         // 여기에 코드 작성
-        return null;
+        return strings.stream()
+                .collect(Collectors.toMap(
+                        str -> str,
+                        str -> str.chars().distinct().count()
+                ));
     }
 }

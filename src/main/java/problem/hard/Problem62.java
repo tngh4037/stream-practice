@@ -13,6 +13,9 @@ public class Problem62 {
      */
     public static int findMaxOddNumberAbove50(List<Integer> numbers) {
         // 여기에 코드 작성
-        return 0;
+        return numbers.stream()
+                .filter(num -> num % 2 != 0 && num >= 50)
+                .max(Integer::compareTo)
+                .orElse(0);
     }
 }
